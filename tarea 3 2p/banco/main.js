@@ -3,12 +3,15 @@ import Registro from "./Agenda.js"
 
 class Main{
     constructor(){
-    this._registro = new Registro(document.querySelector("#agenda"), document.querySelector("#info"));
+    let agenda = new Registro(
+    document.querySelector("#agenda"), 
+    document.querySelector("#info"));
     document.querySelector("#btnAdd").addEventListener("click", () => {
 
-        let form = document.querySelector("#forms");
+        let form = document.querySelector("#form");
 
         if (form.checkValidity() === true) {
+
         let name = document.querySelector("#name").value;
         let cuenta = document.querySelector("#cuenta").value;
         let tipoMovimiento = document.querySelector("#select").value;
@@ -21,9 +24,9 @@ class Main{
             cantidad: cantidad,
         };
         let c = new Movimiento(objBanco);
-        this._registro.addMove(c);
-        }
-        form.classList.add("was-validated");
+        agenda.addMovimiento(c)
+        ;}
+    form.classList.add("was-validated");
     });
     }   
 }

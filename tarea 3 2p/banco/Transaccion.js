@@ -18,11 +18,11 @@ export default class Movimiento{
         return this._tipoMovimiento;
     }
     getDeposito(){
-        this._saldo =Number(this._saldo.value + this._cantidad.value);
+        this._saldo =this._saldo + this._cantidad;
         return this._saldo;
     }
     getRetiro(){
-        this._saldo =Number(this._saldo.value - this._cantidad.value);
+        this._saldo =this._saldo - this._cantidad;
         return this._saldo;
     }
 }
